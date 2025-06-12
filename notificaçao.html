@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Notificações - Pyxis Tour</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #66f0f4, #0b3bbf);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: white;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 400px;
+      width: 90%;
+    }
+
+    .logo {
+      width: 60px;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      margin-bottom: 30px;
+    }
+
+    .item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 15px 0;
+    }
+
+    .item span {
+      text-align: left;
+      font-size: 12px;
+    }
+
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 40px;
+      height: 20px;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: default;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      transition: .4s;
+      border-radius: 34px;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 14px;
+      width: 14px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: .4s;
+      border-radius: 50%;
+    }
+
+    input:checked + .slider {
+      background-color: #2196F3;
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(20px);
+    }
+
+    .voltar {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      font-size: 12px;
+      text-decoration: none;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="imagem.png" alt="Logo Pyxis Tour" class="logo">
+    <h2>NOTIFICAÇÕES!</h2>
+
+    <div class="item">
+      <span>SABER NOVOS PONTOS TURÍSTICOS</span>
+      <label class="switch"><input type="checkbox"><span class="slider"></span></label>
+    </div>
+    <div class="item">
+      <span>ENVIAR<br>NOVAS HISTÓRIAS</span>
+      <label class="switch"><input type="checkbox"><span class="slider"></span></label>
+    </div>
+    <div class="item">
+      <span>NOVOS ALUGUÉIS</span>
+      <label class="switch"><input type="checkbox"><span class="slider"></span></label>
+    </div>
+    <div class="item">
+      <span>NOVAS PASSAGENS</span>
+      <label class="switch"><input type="checkbox"><span class="slider"></span></label>
+    </div>
+    <div class="item">
+      <span>DESCONTOS</span>
+      <label class="switch"><input type="checkbox"><span class="slider"></span></label>
+    </div>
+    <div class="item">
+      <span>NOVAS ATUALIZAÇÕES</span>
+      <label class="switch"><input type="checkbox"><span class="slider"></span></label>
+    </div>
+    <div class="item">
+      <span>TUDO</span>
+      <label class="switch"><input type="checkbox"><span class="slider"></span></label>
+    </div>
+  </div>
+
+  <a href="#" class="voltar">⭠ voltar</a>
+</body>
+</html>
