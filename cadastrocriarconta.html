@@ -9,15 +9,22 @@
   <div class="container">
     <img src="imagem.png" alt="Logo Pyxis Tour" class="logo">
     <h1>PYXIS TOUR BRASIL</h1>
+    <form action="index.html" method="get">
 <input type="email" placeholder="e-mail">
     <input type="text" placeholder="telefone">
     <input type="text" placeholder="nome completo">
     <input type="password" placeholder="senha">
     <input type="password" placeholder="confirmar senha">
-    <button>enviar</button>
+    </form>
+
+
+<form onsubmit="window.location.href='pesquisa.html';return false;">
+    <button type="submit">Enviar</button>
+    </form>
+    <a href="index.html" class="voltar">Voltar</a>
   </div>
 
-  <div class="voltar">⭠ voltar</div>
+  
 </body>
 </html>
 

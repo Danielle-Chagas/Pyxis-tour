@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu Viagem</title>
+  <link rel="stylesheet" href="pesquisa.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+</head>
+<body>
+
+      <nav class="menu">
+        <ul>
+          <li><a href="hoteis.html"><i class="fas fa-bed"></i> Hotéis</a></li>
+          <li><a href="carros.html"><i class="fas fa-car"></i> Carros</a></li>
+          <li><a href="aviao.html"><i class="fas fa-plane"></i> Passagens de Avião</a></li>
+          <li><a href="onibus.html"><i class="fas fa-bus"></i> Passagens de Ônibus</a></li>
+          <li><a href="ofertas.html"><i class="fas fa-tags"></i> Ofertas</a></li>
+
+          <li class="menu-perfil">
+            <button id="menuToggle" class="user-icon">
+              <i class="fas fa-user-circle"></i>
+            </button>
+
+            <div id="dropdownMenu" class="dropdown-menu">
+                <a href="perfil.html"> Perfil</a>
+                <a href="central.html"> Central de Ajuda</a>
+                <a href="config.html"> Configurações</a>
+                <a href="notif.html">Notificações</a>
+              </div>
+            </li>
+      
+    
+        </ul>
+      </nav>
+      
+    </ul>
+  </nav>
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const dropdownMenu = document.getElementById('dropdownMenu');
+  
+    menuToggle.addEventListener('click', () => {
+      dropdownMenu.style.display =
+        dropdownMenu.style.display === 'block' ? 'none' : 'block';
+    });
+  
+    
+    window.addEventListener('click', (e) => {
+      if (!menuToggle.contains(e.target) && !dropdownMenu.contains(e.target)) {
+        dropdownMenu.style.display = 'none';
+      }
+    });
+  </script>
+  
+
+
+</body>
+</html>
+
+

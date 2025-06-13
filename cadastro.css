@@ -1,59 +1,62 @@
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(to right, #66f0f4, #0b3bbf);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #2ac1dd, #1e4db9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
 
-  .container {
-    text-align: center;
-    color: white;
-  }
+.container {
+  text-align: center;
+}
 
-  .logo {
-    width: 60px;
-    margin-bottom: 10px;
-  }
+.logo {
+  width: 100px;
+  margin-bottom: 20px;
+}
 
-  h1 {
-    font-size: 20px;
-    margin-bottom: 20px;
-  }
+h1 {
+  color: white;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
 
-  input[type="text"],
-  input[type="email"],
-  input[type="password"],
-  button {
-    display: block;
-    width: 200px;
-    padding: 10px;
-    margin: 10px auto;
-    border: none;
-    border-radius: 5px;
-    font-size: 14px;
-  }
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
 
-  input[type="text"],
-  input[type="email"],
-  input[type="password"] {
-    background-color: white;
-    color: black;
-  }
+input {
+  width: 250px;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+}
 
-  button {
-    background-color: white;
-    color: black;
-    font-weight: bold;
-    cursor: pointer;
-  }
+button {
+  padding: 10px 20px;
+  background-color: white;
+  color: black;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 10px;
+}
 
-  .voltar {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    font-size: 12px;
-    color: white;
-  }
+button:hover {
+  background-color: #ddd;
+}
+
+a {
+  color: white;
+  margin-top: 10px;
+  display: inline-block;
+  text-decoration: underline;
+}
