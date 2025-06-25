@@ -1,10 +1,10 @@
 body{
-    background: linear-gradient(to right, #66f0f4, #0b3bbf);
+    background-color: #13165c;
     margin:0;
     
 }
 .menu {
-    background: #004080; 
+    background: #004aad; 
     padding: 10px 0;
     text-align: center;
   }
@@ -67,4 +67,58 @@ body{
   .dropdown-menu a:hover {
     background-color: #f1f1f1;
   }
+  .banner img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+.search-bar {
+      background-color: #487dc5; /* azul claro */
+      padding: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      border-radius: 40px;
+      width: fit-content;
+      margin: -40px auto 30px auto; /* sobe a barra um pouco e centraliza */
+      position: relative;
+      z-index: 1;
+    }
+
+    .search-bar img.icon {
+      width: 30px;
+      height: 30px;
+    }
+
+    .search-input {
+      background-color: white;
+      border-radius: 40px;
+      padding: 5px 15px;
+      display: flex;
+      align-items: center;
+    }
+
+    .search-input input {
+      border: none;
+      outline: none;
+      padding: 8px;
+      border-radius: 40px;
+    }
+
+    .search-input img {
+      width: 20px;
+      margin-left: 8px;
+    }
+  
+ .logo-fixa {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      width: 60px;  /* ajuste conforme a imagem */
+      height: auto;
+      z-index: 100;
+    }
   

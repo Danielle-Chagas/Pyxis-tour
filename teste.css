@@ -1,0 +1,13 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background-image: url('pyxis.png'); /* Substitua pelo nome correto */
+  background-size: cover;         /* Redimensiona proporcionalmente até cobrir toda a tela */
+  background-position: center;    /* Centraliza a imagem */
+  background-repeat: no-repeat;   /* Evita repetição da imagem */
+}
