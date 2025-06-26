@@ -1,127 +1,211 @@
+
 body{
-    background-color: #13165c;
-    margin:0;
-    
+  background-color: #13165c;
+  margin:0;
+  
 }
 .menu {
-    background: #004aad; 
-    padding: 10px 0;
-    text-align: center;
-  }
-  
-  .menu ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-  }
-  
-  .menu li a {
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: bold;
-    transition: color 0.3s;
-  }
-  
-  .menu li a:hover {
-    color: #ffd700; 
-  }
-  
-  
+  background: #004aad; 
+  padding: 10px 0;
+  text-align: center;
+}
+
+.menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+.menu li a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.menu li a:hover {
+  color: #ffd700; 
+}
+
+
 .user-menu-container {
-    position: relative;
-    display: inline-block;
-  }
-  
-  .user-icon {
-    background: none;
-    border: none;
-    font-size: 30px;
-    color: white;
-    cursor: pointer;
-  }
-  
-  .dropdown-menu {
-    display: none;
-    position: absolute;
-    top: 45px;
-    right: 0;
-    background-color: #ffffff;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    min-width: 160px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-    z-index: 1;
-  }
-  
-  .dropdown-menu a {
-    display: block;
-    padding: 12px 16px;
-    text-decoration: none;
-    color: #333;
-  }
-  
-  .dropdown-menu a:hover {
-    background-color: #f1f1f1;
-  }
-  .banner img {
-  width: 100%;
-  height: auto;
+  position: relative;
+  display: inline-block;
+}
+
+.user-icon {
+  background: none;
+  border: none;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 45px;
+  right: 0;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  min-width: 160px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-menu a {
   display: block;
+  padding: 12px 16px;
+  text-decoration: none;
+  color: #333;
+}
+
+.dropdown-menu a:hover {
+  background-color: #f1f1f1;
+}
+.banner img {
+width: 100%;
+height: auto;
+display: block;
 }
 
 
 .search-bar {
-      background-color: #487dc5; /* azul claro */
-      padding: 15px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 20px;
-      border-radius: 40px;
-      width: fit-content;
-      margin: -40px auto 30px auto; /* sobe a barra um pouco e centraliza */
-      position: relative;
-      z-index: 1;
-    }
+    background-color: #487dc5; /* azul claro */
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    border-radius: 40px;
+    width: fit-content;
+    margin: -40px auto 30px auto; /* sobe a barra um pouco e centraliza */
+    position: relative;
+    z-index: 1;
+  }
 
-    .search-bar img.icon {
-      width: 30px;
-      height: 30px;
-    }
+  .search-bar img.icon {
+    width: 30px;
+    height: 30px;
+  }
 
-    .search-input {
-      background-color: white;
-      border-radius: 40px;
-      padding: 5px 15px;
-      display: flex;
-      align-items: center;
-    }
+  .search-input {
+    background-color: white;
+    border-radius: 40px;
+    padding: 5px 15px;
+    display: flex;
+    align-items: center;
+  }
 
-    .search-input input {
-      border: none;
-      outline: none;
-      padding: 8px;
-      border-radius: 40px;
-    }
+  .search-input input {
+    border: none;
+    outline: none;
+    padding: 8px;
+    border-radius: 40px;
+  }
 
-    .search-input img {
-      width: 20px;
-      margin-left: 8px;
-    }
+  .search-input img {
+    width: 20px;
+    margin-left: 8px;
+  }
+
+
+.search-bar {
+  list-style: none;
   
- 
-  .search-bar {
-    list-style: none;
-    
-    
-    
-  }
+  
+  
+}
 
-  .search-bar li a{
-    text-decoration: none;
-    color: white;
-  }
+.search-bar li a{
+  text-decoration: none;
+  color: white;
+}
+
+.formulario {
+  display: none;
+  margin-top: 20px;
+  background: #005db2;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.formulario input, .formulario select {
+  margin: 10px 0;
+  padding: 8px;
+  width: 90%;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.formulario input[type="submit"] {
+  background-color: #ffffff;
+  color: #004aad;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.formulario.ativo {
+  display: block!important;
+}
+
+.logo img{
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.modal{
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+}
+
+/* Conteúdo do modal */
+.modal-content {
+  background-color: white;
+  color: #004aad;
+  margin: 15% auto;
+  padding: 30px;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 300px;
+  text-align: center;
+}
+
+/* Botão fechar */
+.close {
+  float: right;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #888;
+}
+
+.modal-content button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #004aad;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+
