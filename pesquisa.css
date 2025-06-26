@@ -113,12 +113,15 @@ body{
       margin-left: 8px;
     }
   
- .logo-fixa {
-      position: fixed;
-      bottom: 10px;
-      left: 10px;
-      width: 60px;  /* ajuste conforme a imagem */
-      height: auto;
-      z-index: 100;
-    }
-  
+ 
+  .search-bar {
+    list-style: none;
+    
+    
+    
+  }
+
+  .search-bar li a{
+    text-decoration: none;
+    color: white;
+  }

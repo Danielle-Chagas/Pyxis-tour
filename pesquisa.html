@@ -12,13 +12,21 @@
 </head>
 <body>
 
+
+
+
       <nav class="menu">
         <ul>
+          <div class="logo">
+<img src="assets/imagens/logo.png" alt="Pyxis Tour Brasil"/>
+
+</div>
           <li><a href="hoteis.html"><i class="fas fa-bed"></i> Hotéis</a></li>
           <li><a href="carros.html"><i class="fas fa-car"></i> Carros</a></li>
           <li><a href="aviao.html"><i class="fas fa-plane"></i> Passagens de Avião</a></li>
           <li><a href="onibus.html"><i class="fas fa-bus"></i> Passagens de Ônibus</a></li>
           <li><a href="ofertas.html"><i class="fas fa-tags"></i> Ofertas</a></li>
+          
 
           <li class="menu-perfil">
             <button id="menuToggle" class="user-icon">
@@ -39,6 +47,35 @@
       
     </ul>
   </nav>
+  <div class="banner">
+  <img src="pyxis.png" alt="Banner promocional">
+</div>
+<!-- Banner -->
+  <div class="banner"></div>
+
+  <!-- Barra de busca -->
+  <div class="search-bar">
+    
+    <li><a href="hoteis.html"><i class="fas fa-bed"></i> Hotéis</a></li>
+          <li><a href="#" onclick="mostrarFormulario(carro)"><i class="fas fa-car"></i> Carros</a></li>
+          <li><a href="aviao.html"><i class="fas fa-plane"></i> Passagens de Avião</a></li>
+          <li><a href="onibus.html"><i class="fas fa-bus"></i> Passagens de Ônibus</a></li>
+          <li><a href="ofertas.html"><i class="fas fa-tags"></i> Ofertas</a></li>
+  </div>
+
+  <div id="form-carros" class="formulario">
+    <input type="text" placeholder="cidade de retirada"
+
+  </div>
+
+    <div class="search-input">
+      <input type="text" placeholder="Pesquisar">
+      <img src="lupa.png" alt="Buscar">
+    </div>
+  </div>
+
+</body>
+</html>
   <script>
     const menuToggle = document.getElementById('menuToggle');
     const dropdownMenu = document.getElementById('dropdownMenu');
@@ -60,5 +97,9 @@
 
 </body>
 </html>
+
+
+
+  
 
 
