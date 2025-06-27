@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Menu Viagem</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    body {
+      background-color: #13165c;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .menu {
+      background: #004aad;
+      padding: 10px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .menu-left {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .menu ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 30px;
+    }
+
+    .menu li a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    .menu li a:hover {
+      color: #ffd700;
+    }
+
+    .logo img {
+      height: 50px;
+    }
+
+    .user-icon {
+      background: none;
+      border: none;
+      font-size: 18px;
+      color: white;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .user-icon span {
+      font-weight: bold;
+      color: #ffd700;
+    }
+
+    .menu-perfil, .menu-lateral-btn {
+      position: relative;
+    }
+
+    .dropdown-menu, .menu-lateral {
+      display: none;
+      position: absolute;
+      top: 45px;
+      right: 0;
+      background-color: #ffffff;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      min-width: 180px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      z-index: 10;
+    }
+
+    .dropdown-menu a, .menu-lateral a {
+      display: block;
+      padding: 12px 16px;
+      text-decoration: none;
+      color: #333;
+    }
+
+    .dropdown-menu a:hover, .menu-lateral a:hover {
+      background-color: #f1f1f1;
+    }
+
+    .banner img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .search-bar {
+      background-color: #487dc5;
+      padding: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      border-radius: 40px;
+      width: fit-content;
+      margin: -40px auto 30px auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .search-bar li {
+      list-style: none;
+    }
+
+    .search-bar li a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+    }
+
+    .formulario {
+      display: none;
+      margin-top: 20px;
+      background: #005db2;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .formulario input, .formulario select {
+      margin: 10px 0;
+      padding: 8px;
+      width: 90%;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    .formulario input[type="submit"], .formulario button {
+      background-color: #ffd700;
+      color: #004aad;
+      font-weight: bold;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      transition: background-color 0.3s;
+    }
+
+    .formulario input[type="submit"]:hover,
+    .formulario button:hover {
+      background-color: #ffc400;
+    }
+
+    .formulario.ativo {
+      display: block !important;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="menu">
+    <div class="menu-left">
+      <div class="logo">
+        <img src="logo.png" alt="Pyxis Tour Brasil"/>
+      </div>
+      
+    </div>
+
+    <div style="display: flex; align-items: center; gap: 15px;">
+      <div class="menu-lateral-btn">
+        <button id="sideMenuToggle"><i class="fas fa-bars fa-lg" style="color: white;"></i></button>
+        <div id="sideMenu" class="menu-lateral">
+          <a href="#">Recomendações</a>
+          <a href="ofertasdodia.html">Ofertas</a>
+          <a href="#">Central de Ajuda</a>
+          <a href="#">Configurações</a>
+        </div>
+      </div>
+
+      <div class="menu-perfil">
+        <button id="menuToggle" class="user-icon">
+          <i class="fas fa-user-circle"></i> <span id="userName">Entrar</span>
+        </button>
+        <div id="dropdownMenu" class="dropdown-menu">
+          <a href="login2.html">Login</a>
+          <a href="cadastro.html">Cadastro</a>
+          <a href="perfil.html">Perfil</a>
+          <a href="central.html">Ajuda</a>
+          <a href="notificação.html">Configurações</a>
+          <a href="#" id="logout">Sair</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="banner">
+    <img src="pyxis.png" alt="Banner promocional">
+  </div>
+
+  <ul class="search-bar">
+    <li><a href="#" onclick="mostrarFormulario('hoteis')"><i class="fas fa-bed"></i> Hotéis</a></li>
+    <li><a href="#" onclick="mostrarFormulario('carros')"><i class="fas fa-car"></i> Carros</a></li>
+    <li><a href="#" onclick="mostrarFormulario('aviao')"><i class="fas fa-plane"></i> Avião</a></li>
+    <li><a href="#" onclick="mostrarFormulario('onibus')"><i class="fas fa-bus"></i> Ônibus</a></li>
+    <li><a href="#" onclick="mostrarFormulario('ofertas')"><i class="fas fa-tags"></i> Ofertas</a></li>
+  </ul>
+
+  <div id="form-hoteis" class="formulario">
+    <input type="text" placeholder="Hotel">
+    <input type="date">
+    <input type="date">
+    <input type="number" placeholder="Hóspedes">
+    <button onclick="alert('Buscando hotéis...')">Buscar Hotéis</button>
+  </div>
+
+  <div id="form-carros" class="formulario">
+    <input type="text" placeholder="Cidade de retirada">
+    <input type="date">
+    <input type="date">
+    <button onclick="alert('Buscando carros...')">Buscar Carros</button>
+  </div>
+
+  <div id="form-aviao" class="formulario">
+    <input type="text" placeholder="Origem">
+    <input type="text" placeholder="Destino">
+    <input type="date">
+    <input type="date">
+    <input type="number" placeholder="Adultos">
+    <input type="number" placeholder="Crianças">
+    <button onclick="alert('Buscando voos...')">Buscar Voos</button>
+  </div>
+
+  <div id="form-onibus" class="formulario">
+    <input type="text" placeholder="Origem">
+    <input type="text" placeholder="Destino">
+    <input type="date">
+    <input type="date">
+    <input type="number" placeholder="Adultos">
+    <input type="number" placeholder="Crianças">
+    <button onclick="alert('Buscando passagens...')">Buscar Ônibus</button>
+  </div>
+
+  <script>
+    // Mostrar formulário conforme opção
+    function mostrarFormulario(opcao) {
+      document.querySelectorAll('.formulario').forEach(form => {
+        form.classList.remove('ativo');
+      });
+      const formSelecionado = document.getElementById('form-' + opcao);
+      if (formSelecionado) formSelecionado.classList.add('ativo');
+    }
+
+    // Menu dropdown
+    const menuToggle = document.getElementById('menuToggle');
+    const dropdownMenu = document.getElementById('dropdownMenu');
+    menuToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+    });
+
+    const sideMenuToggle = document.getElementById('sideMenuToggle');
+    const sideMenu = document.getElementById('sideMenu');
+    sideMenuToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      sideMenu.style.display = sideMenu.style.display === 'block' ? 'none' : 'block';
+    });
+
+    window.addEventListener('click', () => {
+      dropdownMenu.style.display = 'none';
+      sideMenu.style.display = 'none';
+    });
+
+    // Mostrar nome do usuário logado
+    const usuario = JSON.parse(localStorage.getItem('usuarioLogado'));
+    if (usuario) {
+      document.getElementById('userName').textContent = usuario.nome.split(" ")[0];
+    }
+
+    // Logout
+    const logoutBtn = document.getElementById('logout');
+    logoutBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      localStorage.removeItem('usuarioLogado');
+      window.location.reload();
+    });
+  </script>
+
+</body>
+</html>
