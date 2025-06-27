@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    input { display: block; margin: 10px 0; padding: 8px; width: 250px; }
+  </style>
+</head>
+<body>
+  <h2>Login</h2>
+  <input type="email" id="email" placeholder="Email">
+  <input type="password" id="senha" placeholder="Senha">
+  <button onclick="login()">Entrar</button>
+
+  <script>
+    function login() {
+      const email = document.getElementById('email').value;
+      const senha = document.getElementById('senha').value;
+
+      const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+      const usuario = usuarios.find(u => u.email === email && u.senha === senha);
+
+      if (!usuario) {
+        alert("E-mail ou senha incorretos.");
+        return;
+      }
+
+      localStorage.setItem('usuarioLogado', JSON.stringify(usuario));
+      alert("Login realizado com sucesso!");
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>
