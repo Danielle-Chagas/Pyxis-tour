@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Meu Perfil</title>
+  <link rel="stylesheet" href="perfil.css">
+</head>
+<body>
+  <div class="perfil-container">
+    <h2>Meu Perfil</h2>
+
+    <div class="foto-perfil">
+      <img id="fotoUsuario" src="default-user.png" alt="Foto de perfil" />
+      <input type="file" id="fotoInput" accept="image/*" />
+    </div>
+
+    <form id="formPerfil">
+      <label>Nome:</label>
+      <input type="text" id="nome" required>
+
+      <label>Email:</label>
+      <input type="email" id="email" required disabled>
+
+      <label>Telefone:</label>
+      <input type="tel" id="telefone" required>
+
+      <button type="submit">Salvar Alterações</button>
+    </form>
+
+    <div class="reservas">
+      <h3>Minhas Reservas</h3>
+      <ul id="listaReservas">
+        <li>Você ainda não possui reservas.</li>
+      </ul>
+    </div>
+
+    <button id="logout">Sair da conta</button>
+  </div>
+
+  <script src="perfil.js"></script>
+</body>
+</html>

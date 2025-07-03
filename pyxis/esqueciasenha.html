@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Recuperar Senha - Pyxis Tour</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #66f0f4, #0b3bbf);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: white;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 400px;
+    }
+
+    .logo {
+      width: 60px;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 14px;
+      margin: 10px 0;
+    }
+
+    .options {
+      margin: 20px 0;
+    }
+
+    .options button {
+      padding: 10px 20px;
+      margin: 5px;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      background-color: white;
+      color: black;
+      cursor: pointer;
+    }
+
+    .codigo {
+      font-size: 24px;
+      letter-spacing: 15px;
+      margin: 20px 0;
+    }
+
+    .reenviar {
+      font-size: 12px;
+      text-decoration: underline;
+      cursor: pointer;
+      color: white;
+    }
+
+    .voltar {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      font-size: 12px;
+      color: white;
+      text-decoration: none;
+    }
+
+    .icone {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      width: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="imagem.png" alt="Logo Pyxis Tour" class="logo">
+
+    <h2>ESQUECEU SUA SENHA ?</h2>
+    <p>
+      Siga as seguintes etapas para recuperar sua senha.<br>
+      Você terá que confirmar um código que será enviado<br>
+      a seu SMS ou GMAIL, para conseguirmos confirmar<br>
+      que essa conta é realmente sua.
+    </p>
+    <p>
+      Se você tiver problemas, tente seguir as dicas para<br>
+      concluir as etapas de recuperação de conta.<br>
+      Redefina a senha quando solicitado. Escolha uma<br>
+      senha forte que você ainda não tenha usado com<br>
+      essa conta.
+    </p>
+
+    <div class="options">
+      <p><strong>enviar por :</strong></p>
+      <button>SMS</button>
+      <button>E-MAIL</button>
+    </div>
+
+    <div class="container">
+  
+        <label for="codigo">INSIRA O CÓDIGO</label>
+        <input type="text" id="codigo" placeholder="✖ ✖ ✖ ✖">
+
+        <button class="enviar">ENVIAR CÓDIGO</button>
+    </div>
+
+    <div class="reenviar">REENVIAR</div>
+  </div>
+
+  <img src="ajuda.png" alt="Ícone" class="icone">
+</body>
+</html>

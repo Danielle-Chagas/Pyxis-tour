@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Chat de Suporte</title>
+<style>
+body {
+background: #007bff;
+font-family: Arial, sans-serif;
+display: flex;
+justify-content: center;
+padding-top: 30px;
+}
+
+#chat {
+background: white;
+border-radius: 10px;
+padding: 20px;
+width: 350px;
+box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+button {
+width: 100%;
+padding: 12px;
+margin: 8px 0;
+border: none;
+border-radius: 8px;
+background-color: #f1f1f1;
+font-size: 16px;
+cursor: pointer;
+text-align: left;
+}
+
+button:hover {
+background-color: #e0e0e0;
+}
+
+.msg {
+margin: 10px 0;
+}
+
+.user {
+color: #007bff;
+font-weight: bold;
+}
+
+.bot {
+color: #333;
+}
+</style>
+</head>
+<body>
+
+<div id="chat">
+<h3>Como posso te ajudar?</h3>
+
+<button onclick="responder('Perguntas frequentes')">Perguntas frequentes</button>
+<button onclick="responder('Contato com o suporte')">Contato com o suporte</button>
+<button onclick="responder('Problemas técnicos')">Problemas técnicos</button>
+<button onclick="responder('Conta e Cadastro')">Conta e Cadastro</button>
+<button onclick="responder('Reservas e compras')">Reservas e compras</button>
+<button onclick="responder('Pagamentos')">Pagamentos</button>
+<button onclick="responder('Cancelamento e alterações')">Cancelamento e alterações</button>
+<button onclick="responder('Promoções e Cupons')">Promoções e Cupons</button>
+
+<div id="respostas"></div>
+</div>
+
+<script>
+function responder(pergunta) {
+const respostas = {
+"Perguntas frequentes": "Você pode acessar nossa central de ajuda para ver as perguntas mais comuns e suas respostas.",
+"Contato com o suporte": "Nosso suporte está disponível via WhatsApp (61)9 9999-9999 ou e-mail: pyxistour@gmail.com.",
+"Problemas técnicos": "Por favor, limpe o cache do navegador ou atualize o site. Se o erro continuar, entre em contato com nosso suporte.",
+"Conta e Cadastro": "Você pode editar seus dados na área 'Minha Conta'. Caso não consiga acessar, use a opção 'Esqueci minha senha'.",
+"Reservas e compras": "As reservas são feitas pelo nosso site e você pode acompanhar seus pedidos na aba 'Minhas Compras'.",
+"Pagamentos": "Aceitamos cartões de crédito, Pix e boleto. Parcelamos em até 3x sem juros.",
+"Cancelamento e alterações": "Cancelamentos podem ser feitos até 24h antes da data marcada. Alterações devem ser solicitadas por e-mail.",
+"Promoções e Cupons": "Fique atento ao nosso Instagram e e-mail para receber cupons exclusivos e ofertas especiais."
+};
+
+const chat = document.getElementById("respostas");
+
+chat.innerHTML += `<div class="msg user">🔹 ${pergunta}</div>`;
+chat.innerHTML += `<div class="msg bot">🤖 ${respostas[pergunta]}</div>`;
+}
+</script>
+
+</body>
+</html>
+

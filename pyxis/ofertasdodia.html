@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Ofertas do Dia</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #4ecdc4, #1a73e8);
+      min-height: 100vh;
+    }
+
+    .container {
+      text-align: center;
+      color: white;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 18px;
+      margin-bottom: 40px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .card {
+      background-color: white;
+      color: black;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      text-decoration: none;
+      transition: transform 0.3s, background-color 0.3s;
+    }
+
+    .card:hover {
+      background-color: #ddd;
+      transform: translateY(-5px);
+    }
+
+    .emoji {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .titulo-oferta {
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .preco {
+      font-size: 14px;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Vamos viajar juntos nessa?</h1>
+    <p>Confira as melhores ofertas de passagens, hotéis e aluguéis de hoje!</p>
+
+    <div class="grid">
+      <a href="reserva-aviao.html" class="card">
+        <div class="emoji">✈️</div>
+        <div class="titulo-oferta">SP → Rio</div>
+        <div class="preco">R$ 199,00</div>
+      </a>
+
+      <a href="reserva-onibus.html" class="card">
+        <div class="emoji">🚌</div>
+        <div class="titulo-oferta">BH → RJ</div>
+        <div class="preco">R$ 89,00</div>
+      </a>
+
+      <a href="reserva-hotel.html" class="card">
+        <div class="emoji">🏨</div>
+        <div class="titulo-oferta">Hotel em Fortaleza</div>
+        <div class="preco">R$ 299,00 / noite</div>
+      </a>
+
+      <a href="reserva-carro.html" class="card">
+        <div class="emoji">🚗</div>
+        <div class="titulo-oferta">Jeep Renegade</div>
+        <div class="preco">R$ 189,00 / dia</div>
+      </a>
+
+      <a href="reserva-aviao.html" class="card">
+        <div class="emoji">✈️</div>
+        <div class="titulo-oferta">Curitiba → Salvador</div>
+        <div class="preco">R$ 349,00</div>
+      </a>
+
+      <a href="reserva-hotel.html" class="card">
+        <div class="emoji">🏨</div>
+        <div class="titulo-oferta">Hotel Gramado</div>
+        <div class="preco">R$ 259,00 / noite</div>
+      </a>
+      <a href="reserva-carro.html" class="card">
+        <div class="emoji">🚗</div>
+        <div class="titulo-oferta">Audi A3 sedan</div>
+        <div class="preco">R$ 250,00 / dia</div>
+      </a>
+      <a href="reserva-onibus.html" class="card">
+        <div class="emoji">🚌</div>
+        <div class="titulo-oferta">SC → BSB</div>
+        <div class="preco">R$ 120,00</div>
+      </a>
+    </div>
+  </div>
+
+</body>
+</html>
+

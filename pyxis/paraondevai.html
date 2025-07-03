@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Destino - Pyxis Tour</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #66f0f4, #0b3bbf);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 400px;
+      width: 90%;
+    }
+
+    .logo {
+      width: 60px;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin: 20px 0 5px;
+    }
+
+    input {
+      width: 80%;
+      padding: 10px;
+      font-size: 14px;
+      border: none;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+
+    .icone-notificacao {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 20px;
+    }
+
+    .icone-ajuda {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      width: 25px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="imagem.png" alt="Logo Pyxis Tour" class="logo">
+
+    <label for="destino">PARA ONDE VOCÊ QUER IR ?</label>
+    <input type="text" id="destino" placeholder="inserir...">
+
+    <label for="estado">ESTADO</label>
+    <input type="text" id="estado" placeholder="inserir...">
+
+    <label for="localizacao">SUA LOCALIZAÇÃO</label>
+    <input type="text" id="localizacao" placeholder="inserir...">
+    <button class="pesquisar">pesquisar</button>
+  </div>
+
+  <img src="notifica.png" alt="Notificações" class="icone-notificacao">
+  <img src="ajuda.png" alt="Ajuda" class="icone-ajuda">
+  
+ 
+
+</body>
+</html>
+

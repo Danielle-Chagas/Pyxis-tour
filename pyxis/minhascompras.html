@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Minhas Compras</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #66f0f4, #0b3bbf);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: white;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 400px;
+      width: 90%;
+    }
+
+    .logo {
+      width: 60px;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      margin-bottom: 30px;
+    }
+
+    .item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 15px 0;
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 10px;
+      border-radius: 10px;
+    }
+
+    .item span {
+      text-align: left;
+      font-size: 12px;
+    }
+
+    .cancelar-btn {
+      margin-top: 5px;
+      padding: 5px 10px;
+      background-color: red;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 10px;
+      cursor: pointer;
+    }
+
+    .cancelar-btn:hover {
+      background-color: darkred;
+    }
+
+    .voltar {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      font-size: 12px;
+      text-decoration: none;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Minhas Compras</h2>
+
+  <div class="item">
+    <span>
+      <strong>Passagem Aérea</strong><br>
+      São Paulo - 10/07/2025
+      <br><button class="cancelar-btn" onclick="cancelarCompra(this)">Cancelar</button>
+    </span>
+  </div>
+
+  <div class="item">
+    <span>
+      <strong>Ônibus</strong><br>
+      Rio → BH - 12/07/2025
+      <br><button class="cancelar-btn" onclick="cancelarCompra(this)">Cancelar</button>
+    </span>
+  </div>
+
+  <div class="item">
+    <span>
+      <strong>Aluguel de Carro</strong><br>
+      13 a 15/07/2025
+      <br><button class="cancelar-btn" onclick="cancelarCompra(this)">Cancelar</button>
+    </span>
+  </div>
+
+  <div class="item">
+    <span>
+      <strong>Hotel</strong><br>
+      10 a 14/07/2025 - Pousada Central
+      <br><button class="cancelar-btn" onclick="cancelarCompra(this)">Cancelar</button>
+    </span>
+  </div>
+
+  <a href="#" class="voltar">← Voltar</a>
+</div>
+
+<script>
+  function cancelarCompra(botao) {
+    const confirmar = confirm("Deseja realmente cancelar esta compra?");
+    if (confirmar) {
+      const item = botao.closest('.item');
+      item.remove();
+    }
+  }
+</script>
+
+</body>
+</html>
+
+
