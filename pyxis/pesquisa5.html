@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Menu Viagem</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="pesquisa5.css">
+</head>
+<body>
+
+  <nav class="menu">
+    <div class="menu-left">
+      <div class="logo">
+        <img src="logo2.png" alt="Pyxis Tour Brasil"/>
+        <span class="nome-empresa">Pyxis Tour Brasil</span>
+      </div>
+      
+    </div>
+
+    <div style="display: flex; align-items: center; gap: 15px;">
+      <div class="menu-lateral-btn">
+        <button id="sideMenuToggle"><i class="fas fa-bars fa-lg" style="color: white;"></i></button>
+        <div id="sideMenu" class="menu-lateral">
+          <a href="paraondevai.html">Pesquisar lugares</a>
+          <a href="#" class="apenas-logado">Recomendações</a>
+          <a href="ofertasdodia.html">Ofertas</a>
+          <a href="minhascompras.html" class="apenas-logado">Minhas compras</a>
+          <a href="sobrenos.html">Sobre nos </a>
+         
+        </div>
+      </div>
+
+      <div class="menu-perfil">
+        <button id="menuToggle" class="user-icon">
+          <i class="fas fa-user-circle"></i> <span id="userName">Entrar</span>
+        </button>
+        <div id="dropdownMenu" class="dropdown-menu">
+          <a href="login2.html" class="apenas-deslogado">Login</a>
+          <a href="cadastro2.html" class="apenas-deslogado">Cadastro</a>
+          <a href="perfil.html"class="apenas-logado">Perfil</a>
+          <a href="chat.html"class="apenas-logado">Central de ajuda</a>
+          <a href="notificaçao.html" class="apenas-logado">Configurações</a>
+          <a href="#" id="logout" class="apenas-logado">Sair</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="banner">
+    <img src="pyxis.png" alt="Banner promocional">
+  </div>
+
+  <ul class="search-bar">
+    <li><a href="#" onclick="mostrarFormulario('hoteis')"><i class="fas fa-bed"></i> Hotéis</a></li>
+    <li><a href="#" onclick="mostrarFormulario('carros')"><i class="fas fa-car"></i> Carros</a></li>
+    <li><a href="#" onclick="mostrarFormulario('aviao')"><i class="fas fa-plane"></i> Avião</a></li>
+    <li><a href="#" onclick="mostrarFormulario('onibus')"><i class="fas fa-bus"></i> Ônibus</a></li>
+    <li><a href="ofertasdodia.html" onclick="mostrarFormulario('ofertas')"><i class="fas fa-tags"></i> Ofertas</a></li>
+  </ul>
+
+  <div id="form-hoteis" class="formulario">
+    <input type="text" id="cidadeHotel"placeholder="Hotel">
+    <input type="date" id="dataEntradaHotel">
+    <input type="date" id="dataSaidaHotel">
+    <input type="number" id="hospedesHotel" placeholder="Hóspedes">
+    <button onclick="buscarHoteis()">Buscar Hotéis</button>
+  </div>
+
+  <div id="resultadoHoteis" class="resultados"></div>
+
+  <div id="form-carros" class="formulario">
+    <input type="text" id="cidadeRetirada" placeholder="Cidade de retirada">
+    <input type="date" id="dataInicio">
+    <input type="date" id="dataFim">
+    <button onclick="buscarCarros()">Buscar Carros</button>
+  </div>
+  <div id="resultadosCarros" class="resultados"></div>
+
+  <div id="form-aviao" class="formulario">
+    <input type="text" id="origemVoo" placeholder="Origem">
+    <input type="text" id="destinoVoo" placeholder="Destino">
+    <input type="date" id="dataIdaVoo">
+    <input type="date" id="dataVoltaVoo">
+    <input type="number" id="adultosVoo" placeholder="Adultos">
+    <input type="number" id="criancasVoo" placeholder="Crianças">
+    <button onclick="buscarVoos()">Buscar Voos</button>
+  </div>
+
+  <div id="resultadosVoos" class="resultados"></div>
+
+  <div id="form-onibus" class="formulario">
+    <input type="text" id="origemOnibus" placeholder="Origem">
+    <input type="text" id="destinoOnibus" placeholder="Destino">
+    <input type="date" id="dataIdaOnibus">
+    <input type="date" id="dataVoltaOnibus">
+    <input type="number" id="adultosOnibus" placeholder="Adultos">
+    <input type="number" id="criancasOnibus" placeholder="Crianças">
+    <button onclick="buscarOnibus()">Buscar Ônibus</button>
+  </div>
+
+  <div id="resultadosOnibus" class="resultados"></div>
+
+  <script>
+    // Mostrar formulário conforme opção
+    function mostrarFormulario(opcao) {
+      document.querySelectorAll('.formulario').forEach(form => {
+        form.classList.remove('ativo');
+      });
+      const formSelecionado = document.getElementById('form-' + opcao);
+      if (formSelecionado) formSelecionado.classList.add('ativo');
+    }
+
+    // Menu dropdown
+    const menuToggle = document.getElementById('menuToggle');
+    const dropdownMenu = document.getElementById('dropdownMenu');
+    menuToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+    });
+
+    const sideMenuToggle = document.getElementById('sideMenuToggle');
+    const sideMenu = document.getElementById('sideMenu');
+    sideMenuToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      sideMenu.style.display = sideMenu.style.display === 'block' ? 'none' : 'block';
+    });
+
+    window.addEventListener('click', () => {
+      dropdownMenu.style.display = 'none';
+      sideMenu.style.display = 'none';
+    });
+
+    const usuario = JSON.parse(localStorage.getItem('usuarioLogado'));
+
+    const itensLogado = document.querySelectorAll('.apenas-logado');
+    const itensDeslogado = document.querySelectorAll('.apenas-deslogado');
+    const nomeUsuario = document.getElementById('userName');
+
+    if(usuario) {
+      nomeUsuario.textContent = usuario.nome.split("")[0];
+
+      itensLogado.forEach(el => el.style.display = 'block');
+      itensDeslogado.forEach(el => el.style.display = 'none');
+    } else{
+      nomeUsuario.textContent = 'Entrar';
+
+      itensLogado.forEach(el => el.style.display = 'none');
+      itensDeslogado.forEach(el => el.style.display = 'block');
+    }
+
+    if (usuario) {
+  // Mostrar menus específicos de logado
+  document.querySelectorAll('.apenas-logado').forEach(el => el.style.display = 'block');
+} else {
+  document.querySelectorAll('.apenas-logado').forEach(el => el.style.display = 'none');
+}
+
+
+    // Logout
+    const logoutBtn = document.getElementById('logout');
+    logoutBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      localStorage.removeItem('usuarioLogado');
+      window.location.reload();
+    });
+
+    const listaDeHoteis = [
+  { nome: "Hotel Central", cidade: "São Paulo", preco: 280 },
+  { nome: "Hotel Sol", cidade: "Rio de Janeiro", preco: 350 },
+  { nome: "Hotel Maré", cidade: "Salvador", preco: 300 },
+  { nome: "Hotel Lago", cidade: "São Paulo", preco: 310 }
+];
+
+function buscarHoteis() {
+  const cidade = document.getElementById('cidadeHotel').value.trim().toLowerCase();
+  const resultadoDiv = document.getElementById('resultadoHoteis');
+  resultadoDiv.innerHTML = "";
+
+  if (!cidade) {
+    alert("Digite a cidade para buscar hotéis.");
+    return;
+  }
+
+  const encontrados = listaDeHoteis.filter(hotel => hotel.cidade.toLowerCase() === cidade);
+
+  if (encontrados.length === 0) {
+    resultadoDiv.innerHTML = "<p style='color: white;'>Nenhum hotel encontrado nesta cidade.</p>";
+    return;
+  }
+
+  encontrados.forEach(hotel => {
+    const card = document.createElement('div');
+    card.className = "card-hotel";
+    card.innerHTML = `
+      <h3>${hotel.nome}</h3>
+      <p>Cidade: ${hotel.cidade}</p>
+      <p>Preço por noite: R$ ${hotel.preco}</p>
+    `;
+    resultadoDiv.appendChild(card);
+  });
+}
+
+
+    const listaDeCarros = [
+  { nome: "Fiat Argo", cidade: "São Paulo", preco: 120 },
+  { nome: "Hyundai HB20", cidade: "Rio de Janeiro", preco: 150 },
+  { nome: "Chevrolet Onix", cidade: "São Paulo", preco: 135 },
+  { nome: "Volkswagen Gol", cidade: "Recife", preco: 100 }
+];
+
+function buscarCarros() {
+  const cidade = document.getElementById("cidadeRetirada").value.trim().toLowerCase();
+  const dataInicio = document.getElementById("dataInicio").value;
+  const dataFim = document.getElementById("dataFim").value;
+  const resultadoContainer = document.getElementById("resultadosCarros");
+  
+  resultadoContainer.innerHTML = "";
+
+  if (!cidade || !dataInicio || !dataFim) {
+    alert("Preencha todos os campos para buscar.");
+    return;
+  }
+
+  const encontrados = listaDeCarros.filter(carro =>
+    carro.cidade.toLowerCase() === cidade
+  );
+
+  if (encontrados.length === 0) {
+    resultadoContainer.innerHTML = "<p style='color:white;'>Nenhum carro encontrado nessa cidade.</p>";
+    return;
+  }
+
+  encontrados.forEach(carro => {
+    const card = document.createElement("div");
+    card.className = "resultado-card";
+    card.innerHTML = `
+      <h3>${carro.nome}</h3>
+      <p><strong>Cidade:</strong> ${carro.cidade}</p>
+      <p><strong>Preço/dia:</strong> R$ ${carro.preco}</p>
+      <p><strong>Retirada:</strong> ${dataInicio}</p>
+      <p><strong>Devolução:</strong> ${dataFim}</p>
+      <button onclick="alert('Carro reservado!')">Reservar</button>
+    `;
+    resultadoContainer.appendChild(card);
+  });
+}
+
+const listaDeVoos = [
+  { origem: "São Paulo", destino: "Rio de Janeiro", preco: 320 },
+  { origem: "Recife", destino: "Brasília", preco: 480 },
+  { origem: "São Paulo", destino: "Fortaleza", preco: 620 },
+  { origem: "Salvador", destino: "Curitiba", preco: 390 }
+];
+
+function buscarVoos() {
+  const origem = document.getElementById("origemVoo").value.trim().toLowerCase();
+  const destino = document.getElementById("destinoVoo").value.trim().toLowerCase();
+  const ida = document.getElementById("dataIdaVoo").value;
+  const volta = document.getElementById("dataVoltaVoo").value;
+  const adultos = document.getElementById("adultosVoo").value;
+  const criancas = document.getElementById("criancasVoo").value;
+  const resultadoContainer = document.getElementById("resultadosVoos");
+
+  resultadoContainer.innerHTML = "";
+
+  if (!origem || !destino || !ida || !volta || !adultos || !criancas) {
+    alert("Preencha todos os campos para buscar voos.");
+    return;
+  }
+
+  const encontrados = listaDeVoos.filter(voo =>
+    voo.origem.toLowerCase() === origem &&
+    voo.destino.toLowerCase() === destino
+  );
+
+  if (encontrados.length === 0) {
+    resultadoContainer.innerHTML = "<p style='color:white;'>Nenhum voo encontrado com esses dados.</p>";
+    return;
+  }
+
+  encontrados.forEach(voo => {
+    const card = document.createElement("div");
+    card.className = "resultado-card";
+    card.innerHTML = `
+      <h3>${voo.origem} ➜ ${voo.destino}</h3>
+      <p><strong>Preço:</strong> R$ ${voo.preco}</p>
+      <p><strong>Ida:</strong> ${ida}</p>
+      <p><strong>Volta:</strong> ${volta}</p>
+      <p><strong>Adultos:</strong> ${adultos}</p>
+      <p><strong>Crianças:</strong> ${criancas}</p>
+      <button onclick="alert('Voo reservado!')">Reservar</button>
+    `;
+    resultadoContainer.appendChild(card);
+  });
+}
+
+const listaDeOnibus = [
+  { origem: "São Paulo", destino: "Rio de Janeiro", preco: 180 },
+  { origem: "Belo Horizonte", destino: "São Paulo", preco: 150 },
+  { origem: "Salvador", destino: "Recife", preco: 210 },
+  { origem: "Curitiba", destino: "Florianópolis", preco: 130 }
+];
+
+function buscarOnibus() {
+  const origem = document.getElementById("origemOnibus").value.trim().toLowerCase();
+  const destino = document.getElementById("destinoOnibus").value.trim().toLowerCase();
+  const ida = document.getElementById("dataIdaOnibus").value;
+  const volta = document.getElementById("dataVoltaOnibus").value;
+  const adultos = document.getElementById("adultosOnibus").value;
+  const criancas = document.getElementById("criancasOnibus").value;
+  const resultadoContainer = document.getElementById("resultadosOnibus");
+
+  resultadoContainer.innerHTML = "";
+
+  if (!origem || !destino || !ida || !volta || !adultos || !criancas) {
+    alert("Preencha todos os campos para buscar passagens.");
+    return;
+  }
+
+  const encontrados = listaDeOnibus.filter(onibus =>
+    onibus.origem.toLowerCase() === origem &&
+    onibus.destino.toLowerCase() === destino
+  );
+
+  if (encontrados.length === 0) {
+    resultadoContainer.innerHTML = "<p style='color:white;'>Nenhuma passagem encontrada com esses dados.</p>";
+    return;
+  }
+
+  encontrados.forEach(onibus => {
+    const card = document.createElement("div");
+    card.className = "resultado-card";
+    card.innerHTML = `
+      <h3>${onibus.origem} ➜ ${onibus.destino}</h3>
+      <p><strong>Preço:</strong> R$ ${onibus.preco}</p>
+      <p><strong>Ida:</strong> ${ida}</p>
+      <p><strong>Volta:</strong> ${volta}</p>
+      <p><strong>Adultos:</strong> ${adultos}</p>
+      <p><strong>Crianças:</strong> ${criancas}</p>
+      <button onclick="alert('Passagem reservada!')">Reservar</button>
+    `;
+    resultadoContainer.appendChild(card);
+  });
+}
+
+
+  </script>
+
+</body>
+</html>
