@@ -1,0 +1,124 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  
+ 
+}
+
+.fundo{
+    position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("pincel.png") center/cover no-repeat;
+  z-index: -2;
+}
+
+.fundo::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.4); /* branco com transparência */
+}
+
+.but1 {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  margin-bottom: 20px;
+  
+}
+
+.but1 button {
+  padding: 10px 20px;
+  margin: 0 5px;
+  border: none;
+  border-radius: 20px;
+  background-color: #fdecec;
+  color: rgba(253, 160, 211, 0.966);
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+
+
+.but1 button.ativo {
+  background-color: #ff4d4d;
+  color: rgba(241, 235, 235, 0.945);
+  
+}
+
+.container {
+  width: 90%;
+  max-width: 350px;
+  background-color: rgba(255, 255, 255, 0.534); 
+  backdrop-filter: blur(10px); 
+  -webkit-backdrop-filter: blur(10px) ;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+ 
+  
+}
+
+
+
+a{
+    color: rgba(64, 65, 65, 0.822);
+    
+}
+
+.form {
+  display: none;
+  flex-direction: column;
+  gap: 15px;
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.form.ativo {
+  display: flex;
+}
+
+input, button {
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  font-size: 1rem;
+  
+}
+
+button[type="submit"] {
+  background-color: #ff4d4d;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Animação de fade-in */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
